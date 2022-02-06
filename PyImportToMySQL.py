@@ -27,7 +27,7 @@ def BackupAndImport():
 
         print(f"\nCreating dump file for {db}")
         command = ['mysqldump', f'-u{REMOTE_USERNAME}', f'-p{REMOTE_PASSWORD}', f'-h{REMOTE_HOST}', '--column-statistics=0', '--verbose', f'{db}']
-        with open('ewi_db.sql', 'w') as outfile:
+        with open(f'{db}.sql', 'w') as outfile:
             subprocess.run(command, stdout = outfile)
 
         print(f"\nImporting {db} to MySQL")
