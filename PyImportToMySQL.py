@@ -21,6 +21,7 @@ LOCAL_PASSWORD = os.getenv("LOCAL_PASSWORD")
 
 def BackupAndImport():
     print("STARTING DATABASE BACKUP:")
+    time_init = time.perf_counter()
 
     for db in DATABASE:
         time_start = time.perf_counter()
@@ -42,7 +43,7 @@ def BackupAndImport():
         print(f"Done! Total time elapsed: {time_delta} seconds")
         print("-"*64)
     
-    print(f"\nDATABASE BACKUP COMPLETE. \nOperation took {time.perf_counter() - time_start} seconds")
+    print(f"\nDATABASE BACKUP COMPLETE. \nOperation took {time.perf_counter() - time_init} seconds")
 
 
 def main():
